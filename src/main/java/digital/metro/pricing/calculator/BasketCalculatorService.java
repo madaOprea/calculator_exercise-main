@@ -24,7 +24,7 @@ public class BasketCalculatorService {
                         entry -> calculateArticle(entry, basket.getCustomerId())));
 
         BigDecimal totalAmount = pricedArticles.values().stream()
-                .reduce(BigDecimal.ONE, (a, b) -> a.add(b));
+                .reduce(BigDecimal.ZERO, (a, b) -> a.add(b));
 
         return new BasketCalculationResult(basket.getCustomerId(), pricedArticles, totalAmount);
     }
@@ -38,6 +38,6 @@ public class BasketCalculatorService {
                 return customerPrice;
             }
         }
-        return priceRepository.getpricebyarticleId(ArticleId);
+        return priceRepository.getPriceByArticleId(ArticleId);
     }
 }
