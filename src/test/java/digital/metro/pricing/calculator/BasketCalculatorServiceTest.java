@@ -1,5 +1,8 @@
 package digital.metro.pricing.calculator;
 
+import digital.metro.pricing.calculator.model.*;
+import digital.metro.pricing.calculator.repository.PriceRepository;
+import digital.metro.pricing.calculator.service.BasketCalculatorService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,8 +11,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.math.BigDecimal;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class BasketCalculatorServiceTest {
 
@@ -59,7 +61,7 @@ public class BasketCalculatorServiceTest {
     @Test
     public void testCalculateBasket() {
         // GIVEN
-        Basket basket = new Basket("customer-1", Set.of(
+        Basket basket = new Basket(UUID.randomUUID().toString(),"customer-1", Set.of(
                 new BasketEntry("article-1", BigDecimal.ONE),
                 new BasketEntry("article-2", BigDecimal.ONE),
                 new BasketEntry("article-3", BigDecimal.ONE)));

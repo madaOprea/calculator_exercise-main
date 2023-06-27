@@ -1,4 +1,4 @@
-package digital.metro.pricing.calculator;
+package digital.metro.pricing.calculator.repository;
 
 import org.springframework.stereotype.Component;
 
@@ -28,8 +28,8 @@ public class PriceRepository {
                 return getPriceByArticleId(id1).multiply(new BigDecimal("0.90")).setScale(2, RoundingMode.HALF_UP);
             case "customer-2":
                 return getPriceByArticleId(id1).multiply(new BigDecimal("0.85")).setScale(2, RoundingMode.HALF_UP);
+            default:
+                return BigDecimal.ZERO;
         }
-
-        return null;
     }
 }
