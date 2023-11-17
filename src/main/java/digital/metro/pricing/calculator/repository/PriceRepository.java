@@ -8,9 +8,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-/**
- * A dummy implementation for testing purposes. In production, we would get real prices from a database.
- */
 @Component
 public class PriceRepository {
 

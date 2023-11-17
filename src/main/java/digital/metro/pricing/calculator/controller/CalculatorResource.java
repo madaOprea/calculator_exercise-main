@@ -19,6 +19,11 @@ public class CalculatorResource {
         this.basketCalculatorService = basketCalculatorService;
     }
 
+    @PostMapping("/add-basket")
+    public ResponseEntity<Basket> addBasket(@RequestBody Basket basket) {
+        return ResponseEntity.status(HttpStatus.OK).body(basketCalculatorService.addBasket(basket));
+    }
+
     @PostMapping("/calculate-basket")
     public ResponseEntity<BasketCalculationResult> calculateBasket(@RequestBody Basket basket) {
         return ResponseEntity.status(HttpStatus.OK).body(basketCalculatorService.calculateBasket(basket));
